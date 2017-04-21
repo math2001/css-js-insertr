@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "CSS JS Insertr",
+    "version": "0.1.0",
+    "description": "Allows you to add custom JavaScript/CSS to any website.",
+    "permissions": [
+        "storage"
+    ],
+    "browser_action": {},
+    "background": {
+        "scripts": ["app.js", "insert.js"]
+    }
+}
