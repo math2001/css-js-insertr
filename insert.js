@@ -7,8 +7,13 @@ class Insertr {
             type: 'get-configs',
             url: location.href
         }, configs => {
+            this.configs = configs
             this.applyConfigs(configs)
-            this.updatePopup(configs)
+        })
+        chrome.runtime.onMessage.addListener((e, _, replyWith) => {
+            if (e.type === 'get-configs-pattern') {
+                replyWith(Object.keys(this.configs))
+            }
         })
     }
 
@@ -31,10 +36,6 @@ class Insertr {
         script.innerHTML = config.js
         script.setAttribute('__data-pattern', pattern)
         document.body.appendChild(script)
-    }
-
-    static updatePopup() {
-        // does nothing for now
     }
 
 }
