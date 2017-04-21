@@ -6,7 +6,7 @@ class ConfigManager {
 
     static init() {
         this.storage = chrome.storage.local
-        this.keyOfPatternList = '.___urls'
+        this.keyOfPatternList = '.___patterns___.'
     }
 
     static matches(pattern, url) {
@@ -93,6 +93,19 @@ class ConfigManager {
         })
     }
 
+    static remove(pattern) {
+        // remove the patterns list
+        this.getFromStorage(this.keyOfPatternList).then(object => {
+            return object[this.keyOfPatternList].filter(item => item !== pattern)
+        }).then(patterns => {
+            let obj = {}
+            obj[this.keyOfPatternList] = patterns
+            this.storage.set(obj)
+        })
+        // remove the config
+        this.removeFromStorage(pattern)
+    }
+
 }
 
 ConfigManager.init()
@@ -104,6 +117,10 @@ chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
         })
         return true
     } else if (e.type === 'update-config') {
-        console.log(e)
+        ConfigManager.setFor(e.pattern, e.config).then(_ => {
+            if (e.pattern !== e.previousPattern) {
+                ConfigManager.remove(e.previousPattern)
+            }
+        })
     }
 })

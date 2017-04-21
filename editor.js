@@ -22,9 +22,9 @@ class App {
             chrome.runtime.sendMessage(null, {
                 type: 'update-config',
                 config: this.getConfig(),
-                previousPattern: this.previousPattern
+                previousPattern: this.previousPattern,
+                pattern: this.pattern.value
             }, response => {
-                console.log('got the reponse', response)
                 this.previousPattern = this.pattern.value
             })
         })
@@ -33,7 +33,6 @@ class App {
 
     static getConfig() {
         return {
-            pattern: this.pattern.value,
             css: this.css.value,
             js: this.js.value,
         }
