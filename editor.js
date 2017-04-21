@@ -5,6 +5,7 @@ class App {
     static init() {
         this.cacheDOM()
         this.bindDOM()
+        this.pattern.value = new URLSearchParams(location.search).get('pattern') || ''
     }
 
     static cacheDOM() {
