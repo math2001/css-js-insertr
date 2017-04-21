@@ -94,16 +94,17 @@ class ConfigManager {
     }
 
     static remove(pattern) {
-        // remove the patterns list
-        this.getFromStorage(this.keyOfPatternList).then(object => {
+        // remove the pattern from list
+        return this.getFromStorage(this.keyOfPatternList).then(object => {
             return object[this.keyOfPatternList].filter(item => item !== pattern)
         }).then(patterns => {
             let obj = {}
             obj[this.keyOfPatternList] = patterns
             this.storage.set(obj)
+
+            // remove the config
+            return this.removeFromStorage(pattern)
         })
-        // remove the config
-        this.removeFromStorage(pattern)
     }
 
 }
@@ -116,16 +117,32 @@ chrome.runtime.onMessage.addListener((e, _, reply) => {
             reply(configs)
         })
         return true
-    } else if (e.type === 'update-config') {
+    }
+
+    else if (e.type === 'update-config') {
         ConfigManager.setFor(e.pattern, e.config).then(_ => {
             if (e.pattern !== e.previousPattern) {
-                ConfigManager.remove(e.previousPattern)
+                ConfigManager.remove(e.previousPattern).then(_ => {
+                    reply('ok')
+                })
+            } else {
+                reply('ok')
             }
         })
-    } else if (e.type == 'get-config') {
+        return true
+    }
+
+    else if (e.type == 'get-config') {
         ConfigManager.getFromStorage(e.pattern).then(config => {
             reply(config[e.pattern])
-        })
+        }).catch(error => reply(error))
+        return true
+    }
+
+    else if (e.type == 'delete-config') {
+        ConfigManager.remove(e.pattern).then(_ => {
+            reply('ok')
+        }).catch(error => reply(error))
         return true
     }
 })
