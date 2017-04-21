@@ -5,7 +5,14 @@ class App {
     static init() {
         this.cacheDOM()
         this.bindDOM()
-        this.pattern.value = new URLSearchParams(location.search).get('pattern') || ''
+        const searchParams = new URLSearchParams(location.search)
+        this.patternString = searchParams.get('pattern') || ''
+        if (searchParams.get('load') === 'true') {
+            this.fillConfig().then(_ => this.enable())
+        } else {
+            this.enable()
+        }
+        this.pattern.value = this.patternString
     }
 
     static cacheDOM() {
@@ -36,6 +43,30 @@ class App {
             css: this.css.value,
             js: this.js.value,
         }
+    }
+
+    static enable() {
+        document.body.classList.remove('loading')
+    }
+
+    static loadConfig() {
+        return new Promise(resolve => {
+            chrome.runtime.sendMessage(null, {
+                type: 'get-config',
+                pattern: this.patternString
+            }, config => {
+                resolve(config)
+            })
+        })
+
+    }
+
+    static fillConfig() {
+        return this.loadConfig().then(config => {
+            debugger
+            this.css.value = config.css
+            this.js.value = config.js
+        })
     }
 
 }

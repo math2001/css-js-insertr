@@ -110,10 +110,10 @@ class ConfigManager {
 
 ConfigManager.init()
 
-chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
+chrome.runtime.onMessage.addListener((e, _, reply) => {
     if (e.type === 'get-configs') {
         ConfigManager.getFor(e.url).then(configs => {
-            sendResponse(configs)
+            reply(configs)
         })
         return true
     } else if (e.type === 'update-config') {
@@ -122,5 +122,10 @@ chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
                 ConfigManager.remove(e.previousPattern)
             }
         })
+    } else if (e.type == 'get-config') {
+        ConfigManager.getFromStorage(e.pattern).then(config => {
+            reply(config[e.pattern])
+        })
+        return true
     }
 })

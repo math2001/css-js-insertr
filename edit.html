@@ -3,11 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>Edit</title>
+    <style type="text/css">
+        body:not(.loading) .loader {
+            display: none;
+        }
+    </style>
 </head>
-<body>
+<body class="loading">
+    <div class="loader">
+        Loading...
+    </div>
     <input type="text" id="pattern" placeholder="Pattern" value="localhost">
-    <textarea id="css" placeholder="CSS">body { color: red }</textarea>
-    <textarea id="js" placeholder="JS">console.info('hello from css js insertr')</textarea>
+    <textarea id="css" placeholder="CSS"></textarea>
+    <textarea id="js" placeholder="JS"></textarea>
     <button id="save">Save</button>
     <script type="text/javascript" src="editor.js"></script>
 </body>

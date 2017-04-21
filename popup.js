@@ -24,7 +24,6 @@ class App {
             chrome.tabs.create({
                 url: chrome.runtime.getURL(`edit.html?pattern=${this.hostname}`)
             })
-
         })
     }
 
