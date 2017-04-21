@@ -51,8 +51,9 @@ class ConfigManager {
     }
 
     static setFor(pattern, config) {
+
         return new Promise((resolve, reject) => {
-            this.storage.get(this.keyOfPatternList, (object) => {
+            this.getFromStorage(this.keyOfPatternList).then((object) => {
                 let urls;
                 if (object[this.keyOfPatternList] === undefined) {
                     urls = []
