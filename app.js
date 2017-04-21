@@ -28,6 +28,10 @@ class ConfigManager {
                 const patterns = object[this.keyOfPatternList]
                 const matches = []
 
+                if (patterns === undefined) {
+                    return []
+                }
+
                 patterns.some((pattern) => {
                     if (this.matches(pattern, url)) {
                         matches.push(pattern)
