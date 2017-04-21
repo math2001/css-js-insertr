@@ -79,9 +79,17 @@ class ConfigManager {
         })
     }
 
-    static clear() {
+    static clearStorage() {
         return this.storage.clear(function () {
             console.info('Cleared storage successfully')
+        })
+    }
+
+    static removeFromStorage(keys) {
+        return new Promise((resolve, reject) => {
+            this.storage.remove(keys, function () {
+                resolve()
+            })
         })
     }
 
