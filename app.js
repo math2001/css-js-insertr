@@ -75,6 +75,12 @@ class ConfigManager {
         })
     }
 
+    static clear() {
+        return this.storage.clear(function () {
+            console.info('Cleared storage successfully')
+        })
+    }
+
 }
 
 ConfigManager.init()
