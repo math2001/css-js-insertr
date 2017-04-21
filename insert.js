@@ -4,7 +4,7 @@ class Insertr {
 
     static init() {
         chrome.runtime.sendMessage(null, {
-            name: 'get-configs',
+            type: 'get-configs',
             url: location.href
         }, configs => {
             this.applyConfigs(configs)

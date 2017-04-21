@@ -12,14 +12,19 @@ class App {
         this.css = document.querySelector('#css')
         this.js = document.querySelector('#js')
         this.save = document.querySelector('#save')
+        this.previousPattern = this.pattern.value
     }
 
     static bindDOM() {
 
         this.save.addEventListener('click', e => {
-            chrome.runtime.sendMessage({
-                name: 'update-config',
-                config: this.getConfig()
+            chrome.runtime.sendMessage(null, {
+                type: 'update-config',
+                config: this.getConfig(),
+                previousPattern: this.previousPattern
+            }, response => {
+                console.log('got the reponse', response)
+                this.previousPattern = this.pattern.value
             })
         })
 

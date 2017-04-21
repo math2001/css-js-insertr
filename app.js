@@ -98,12 +98,12 @@ class ConfigManager {
 ConfigManager.init()
 
 chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
-    if (e.name === 'get-configs') {
+    if (e.type === 'get-configs') {
         ConfigManager.getFor(e.url).then(configs => {
             sendResponse(configs)
         })
         return true
-    } else if (e.name === 'update-config') {
+    } else if (e.type === 'update-config') {
         console.log(e)
     }
 })
