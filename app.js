@@ -103,5 +103,7 @@ chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
             sendResponse(configs)
         })
         return true
+    } else if (e.name === 'update-config') {
+        console.log(e)
     }
 })
