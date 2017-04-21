@@ -77,15 +77,13 @@ class ConfigManager {
 
 }
 
-// chrome.browserAction.onClicked.addListener(_ => {
-    ConfigManager.init()
-    ConfigManager.setFor('google\\.com', {
-        css: "body { color: red }"
-    }).then(_ => ConfigManager.setFor('google\\.com\\.au', {
-        css: "body { font-style: italic; }"
-    })).then(_ => {
-        return ConfigManager.getFor('https://google.com.au')
-    }).then(configs => {
-        console.log(configs)
-    })
-// })
+ConfigManager.init()
+
+chrome.runtime.onMessage.addListener((e, _, sendResponse) => {
+    if (e.name === 'get-configs') {
+        ConfigManager.getFor(e.url).then(configs => {
+            sendResponse(configs)
+        })
+        return true
+    }
+})

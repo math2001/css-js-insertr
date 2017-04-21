@@ -7,7 +7,14 @@
         "storage"
     ],
     "browser_action": {},
+    "permissions": ["activeTab", "storage"],
     "background": {
-        "scripts": ["app.js", "insert.js"]
-    }
+        "scripts": ["app.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["insert.js"]
+        }
+    ]
 }
