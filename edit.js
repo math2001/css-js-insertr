@@ -1,13 +1,36 @@
 "use strict";
 
+class Editors {
+
+    // manages the css and js editors
+
+    static init(css, js) {
+
+        this.theme = 'ace/theme/monokai'
+
+        this.cssEditor = ace.edit(css)
+        this.cssEditor.setTheme(this.theme);
+        this.cssEditor.getSession().setMode('ace/mode/css')
+
+        this.jsEditor = ace.edit(js)
+        this.jsEditor.setTheme(this.theme)
+        this.cssEditor.getSession().setMode('ace/mode/javascript')
+    }
+
+}
+
 class App {
 
     static init() {
         this.cacheDOM()
+
+        Editors.init(this.css, this.js)
+
         chrome.tabs.query({active: true, currentWindow: true}, tabs => {
             this.tabId = tabs[0].id
             this.bindDOM()
         })
+
         const searchParams = new URLSearchParams(location.search)
         this.patternString = searchParams.get('pattern') || ''
         if (searchParams.get('load') === 'true') {
@@ -46,7 +69,6 @@ class App {
         })
 
         this.delete.addEventListener('click', _ => {
-            debugger
             chrome.runtime.sendMessage(null, {
                 type: 'delete-config',
                 pattern: this.previousPattern

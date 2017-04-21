@@ -14,10 +14,17 @@
         Loading...
     </div>
     <input type="text" id="pattern" placeholder="Pattern">
-    <textarea id="css" placeholder="CSS"></textarea>
-    <textarea id="js" placeholder="JS"></textarea>
+
+
+    <div id="css">body { font-family: Inconsolata; }</div>
+
+
+    <div id="js">console.log('this is a test')</div>
+
     <button id="save">Save</button>
     <button id="delete">Delete</button>
-    <script type="text/javascript" src="editor.js"></script>
+
+    <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="edit.js"></script>
 </body>
 </html>
