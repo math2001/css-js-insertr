@@ -30,7 +30,12 @@ class App {
     }
 
     static render(configs) {
-        render(configs, this.configs)
+        if (configs === undefined) {
+            document.body.classList.add('error')
+        } else {
+            document.body.classList.remove('error')
+            render(configs, this.configs)
+        }
     }
 
 }

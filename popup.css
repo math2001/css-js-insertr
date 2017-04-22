@@ -21,3 +21,17 @@ h3 {
     color: #888;
     margin: 7px 0;
 }
+
+body.error :not(.error-message) {
+    display: none;
+}
+
+body.error .error-message {
+    display: block;
+}
+
+.error-message {
+    padding: 10px;
+    display: none;
+    background-color: #ffcdcd;
+}
