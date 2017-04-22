@@ -17,6 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-family: Roboto;
+    font-size: 100%;
 }
 
 .loader {
@@ -44,6 +46,7 @@ header {
     border-bottom: 1px solid #aaa;
     display: flex;
     padding: 10px;
+    align-items: flex-end;
 }
 
 header > .input-text {

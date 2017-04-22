@@ -1,0 +1,29 @@
+button {
+    background: #ECECEC;
+    border: none;
+    font-size: 100%;
+    font-family: inherit;
+    margin: 3px 5px;
+    padding: 7px 5px;
+    border-radius: 3px;
+    box-shadow: 1px 2px 2px #ccc;
+    cursor: pointer;
+    color: #444;
+    vertical-align: middle;
+    min-width: 60px;
+    transition: all .2s;
+}
+
+button:hover {
+    background-color: #F0F0F0;
+    box-shadow: 2px 4px 5px #ccc;
+}
+
+button.primary {
+    background-color: #6990f7;
+    color: white;
+}
+
+button.primary:hover {
+    background-color: #81A2F9;
+}
