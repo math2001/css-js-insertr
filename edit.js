@@ -10,6 +10,11 @@ class Editors {
         .then(settings => {
             this.settings = settings
 
+            const snippetManager = ace.require("ace/snippets").snippetManager;
+            const config = ace.require("ace/config");
+
+            ace.require("ace/ext/language_tools");
+
             if (settings.emmet === true) {
                 ace.require("ace/ext/emmet")
             }
@@ -36,6 +41,12 @@ class Editors {
             editor.setTheme(`ace/theme/${this.theme}`)
         }
         editor.getSession().setUseSoftTabs(this.settings.softTabs)
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true
+        })
+
         editor.setHighlightActiveLine(this.settings.highlightLine)
         editor.container.style.fontSize = this.settings.fontSize + 'px'
     }
