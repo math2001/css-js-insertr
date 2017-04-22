@@ -12,16 +12,16 @@ class Editors {
         ace.require("ace/ext/emmet")
 
         this.cssEditor = ace.edit(css)
-        this.applyConfig(this.cssEditor)
+        this.applySettings(this.cssEditor)
         this.cssEditor.getSession().setMode('ace/mode/css')
         this.cssEditor.setOption("enableEmmet", true)
 
         this.jsEditor = ace.edit(js)
-        this.applyConfig(this.jsEditor)
+        this.applySettings(this.jsEditor)
         this.jsEditor.getSession().setMode('ace/mode/javascript')
     }
 
-    static applyConfig(editor) {
+    static applySettings(editor) {
         if (this.useVim === true) {
             editor.setKeyboardHandler('ace/keyboard/vim')
         }
@@ -47,6 +47,16 @@ class Editors {
 
 }
 
+function getCurrentTab() {
+    return new Promise(resolve => {
+
+        chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+            resolve(tabs[0])
+        })
+
+    })
+}
+
 class App {
 
     static init() {
@@ -54,20 +64,23 @@ class App {
 
         Editors.init(this.css, this.js)
 
-        chrome.tabs.query({active: true, currentWindow: true}, tabs => {
-            this.tabId = tabs[0].id
-            this.bindDOM()
-        })
-
         const searchParams = new URLSearchParams(location.search)
-        this.patternString = searchParams.get('pattern') || ''
+
+        let loadConfig
         if (searchParams.get('load') === 'true') {
-            this.loadConfig().then(this.fillConfig.bind(this)).then(this.enable.bind(this))
+            loadConfig = this.loadConfig().then(this.fillConfig.bind(this))
         } else {
-            this.enable()
-            this.previousPattern = this.pattern.value
+            loadConfig = 1
         }
+
+        this.patternString = searchParams.get('pattern') || ''
         this.pattern.value = this.patternString
+
+        Promise.all([getCurrentTab().then(tab => {
+            this.tabId = tab.id
+            this.bindDOM()
+        }), loadConfig]).then(this.enable.bind(this))
+
 
     }
 
