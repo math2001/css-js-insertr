@@ -3,10 +3,6 @@
     outline: none;
 }
 
-:root {
-    --mono-fonts: Inconsolata, monaco, consolas, monospace;
-}
-
 html, body {
     height: 100%;
     width: 100%;
