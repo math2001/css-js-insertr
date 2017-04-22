@@ -32,11 +32,15 @@ class App {
         })
         this.saveSettingBtns.some((btn) => {
             btn.addEventListener('click', e => {
-                e.target.disabled = true
+                this.saveSettingBtns.some((btn) => {
+                    btn.disabled = true
+                })
                 ConfigManager.setSettings(this.getSettings()).catch(error => {
                     alert(`Error: ${error}`)
                 }).then(_ => {
-                    // e.target.disabled = false
+                    this.saveSettingBtns.some((btn) => {
+                        btn.disabled = false
+                    })
                 })
             })
         })
