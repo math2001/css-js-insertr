@@ -12,7 +12,7 @@ class ConfigManager {
 
     static getSettings() {
         return new Promise((resolve, reject) => {
-            this.storage.get(this.keyOfSettings, function (object) {
+            this.storage.get(this.keyOfSettings, (object) => {
                 if (chrome.runtime.lastError !== undefined) {
                     reject(chrome.runtime.lastError)
                 } else {
