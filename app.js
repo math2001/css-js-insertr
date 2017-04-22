@@ -16,6 +16,7 @@ class ConfigManager {
             vimMode: false,
             emmet: true,
             softTabs: true,
+            highlightLine: true
         }
     }
 

@@ -13,3 +13,8 @@ h1 {
 .row {
     margin: 10px 0;
 }
+
+label:not(.checkbox) {
+    display: inline-block;
+    min-width: 100px;
+}

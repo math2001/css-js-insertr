@@ -35,9 +35,9 @@ class Editors {
         if (this.settings.theme !== undefined) {
             editor.setTheme(`ace/theme/${this.theme}`)
         }
-        if (this.settings.softTabs === true) {
-            editor.getSession().setUseSoftTabs(true)
-        }
+        editor.getSession().setUseSoftTabs(this.settings.softTabs)
+        editor.setHighlightActiveLine(this.settings.highlightLine)
+        editor.container.style.fontSize = this.settings.fontSize + 'px'
     }
 
     static css(value) {

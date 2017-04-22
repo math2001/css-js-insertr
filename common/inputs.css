@@ -5,6 +5,10 @@
     --redish: #FD5C4C;
 }
 
+.input-text.number {
+    width: 40px;
+}
+
 .input-text input {
     border: none;
     border-bottom: 2px #ccc solid;

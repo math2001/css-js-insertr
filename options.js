@@ -26,6 +26,7 @@ class App {
             tabSize: document.querySelector('#tab-size'),
             vimMode: document.querySelector('#vim-mode'),
             emmet: document.querySelector('#emmet'),
+            highlightLine: document.querySelector('#highlight-line'),
             softTabs: document.querySelector('#soft-tabs'),
         }
     }
