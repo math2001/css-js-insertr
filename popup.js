@@ -5,11 +5,13 @@ class App {
     static init() {
         this.cacheDOM()
 
-        chrome.tabs.query({active: true, currentWindow: true}, tab => {
-            this.hostname = new URL(tab[0].url).hostname
-            chrome.tabs.sendMessage(tab[0].id, {
+        chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+            this.hostname = new URL(tabs[0].url).hostname
+            chrome.tabs.sendMessage(tabs[0].id, {
                 type: 'get-configs-pattern'
-            }, this.updatePatterns.bind(this))
+            }, patterns => {
+                this.updatePatterns(patterns)
+            })
             this.bindDOM()
         })
     }

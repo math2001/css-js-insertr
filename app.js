@@ -114,10 +114,14 @@ class ConfigManager {
 
 ConfigManager.init()
 
-chrome.runtime.onMessage.addListener((e, _, reply) => {
+chrome.runtime.onMessage.addListener((e, sender, reply) => {
     if (e.type === 'get-configs') {
         ConfigManager.getFor(e.url).then(configs => {
             reply(configs)
+            chrome.browserAction.setBadgeText({
+                text: Object.keys(configs).length + '',
+                tabId: sender.tab.id
+            })
         })
         return true
     }
