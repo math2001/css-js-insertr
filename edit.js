@@ -6,27 +6,37 @@ class Editors {
 
     static init(css, js) {
 
-        this.theme = 'tomorrow'
-        this.useVim = true
+        ConfigManager.getSettings()
+        .then(settings => {
+            this.settings = settings
 
-        ace.require("ace/ext/emmet")
+            if (settings.emmet === true) {
+                ace.require("ace/ext/emmet")
+            }
 
-        this.cssEditor = ace.edit(css)
-        this.applySettings(this.cssEditor)
-        this.cssEditor.getSession().setMode('ace/mode/css')
-        this.cssEditor.setOption("enableEmmet", true)
+            this.cssEditor = ace.edit(css)
+            this.applySettings(this.cssEditor)
+            this.cssEditor.getSession().setMode('ace/mode/css')
+            if (settings.emmet === true) {
+                this.cssEditor.setOption("enableEmmet", true)
+            }
 
-        this.jsEditor = ace.edit(js)
-        this.applySettings(this.jsEditor)
-        this.jsEditor.getSession().setMode('ace/mode/javascript')
+            this.jsEditor = ace.edit(js)
+            this.applySettings(this.jsEditor)
+            this.jsEditor.getSession().setMode('ace/mode/javascript')
+        })
+
     }
 
     static applySettings(editor) {
-        if (this.useVim === true) {
+        if (this.settings.vimMode === true) {
             editor.setKeyboardHandler('ace/keyboard/vim')
         }
-        if (this.theme !== undefined) {
+        if (this.settings.theme !== undefined) {
             editor.setTheme(`ace/theme/${this.theme}`)
+        }
+        if (this.settings.softTabs === true) {
+            editor.getSession().setUseSoftTabs(true)
         }
     }
 

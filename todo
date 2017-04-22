@@ -3,3 +3,6 @@
  ☐ display badge css/js/sync
  ☐ better glob (not with regex)
  ☐ tab → use hash in url
+ ☐ enable/disable emmet
+ ☐ snippets
+ ☐ fix style in options.html forms

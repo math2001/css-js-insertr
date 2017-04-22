@@ -23,7 +23,10 @@ class App {
         this.settings = {
             counter: document.querySelector('#counter'),
             fontSize: document.querySelector('#font-size'),
-            tabSize: document.querySelector('#tab-size')
+            tabSize: document.querySelector('#tab-size'),
+            vimMode: document.querySelector('#vim-mode'),
+            emmet: document.querySelector('#emmet'),
+            softTabs: document.querySelector('#soft-tabs'),
         }
     }
 
@@ -37,6 +40,7 @@ class App {
             btn.addEventListener('click', e => {
                 this.saveSettingBtns.some((btn) => {
                     btn.disabled = true
+                    btn.classList.remove('primary')
                 })
                 ConfigManager.setSettings(this.getSettingsFromDom()).catch(error => {
                     alert(`Error: ${error}`)

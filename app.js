@@ -12,7 +12,10 @@ class ConfigManager {
         this.defaultSettings = {
             counter: true,
             fontSize: 16,
-            tabSize: 4
+            tabSize: 4,
+            vimMode: false,
+            emmet: true,
+            softTabs: true,
         }
     }
 
