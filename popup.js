@@ -8,9 +8,9 @@ class App {
         chrome.tabs.query({active: true, currentWindow: true}, tabs => {
             this.hostname = new URL(tabs[0].url).hostname
             chrome.tabs.sendMessage(tabs[0].id, {
-                type: 'get-configs-pattern'
-            }, patterns => {
-                this.updatePatterns(patterns)
+                type: 'get-configs'
+            }, configs => {
+                this.render(configs)
             })
             this.bindDOM()
         })
@@ -29,16 +29,8 @@ class App {
         })
     }
 
-    static updatePatterns(patterns) {
-        patterns.some((pattern) => {
-            const li = document.createElement('li')
-            const a = document.createElement('a')
-            a.href = chrome.runtime.getURL(`/edit.html?pattern=${pattern}&load=true`)
-            a.target = '_blank'
-            a.textContent = pattern
-            li.appendChild(a)
-            this.configs.appendChild(li)
-        })
+    static render(configs) {
+        render(configs, this.configs)
     }
 
 }

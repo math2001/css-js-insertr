@@ -11,8 +11,8 @@ class Insertr {
             this.applyConfigs(configs)
         })
         chrome.runtime.onMessage.addListener((e, _, replyWith) => {
-            if (e.type === 'get-configs-pattern') {
-                replyWith(Object.keys(this.configs))
+            if (e.type === 'get-configs') {
+                replyWith(this.configs)
             }
         })
     }

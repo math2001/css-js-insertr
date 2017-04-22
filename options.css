@@ -13,35 +13,3 @@ h1 {
 .row {
     margin: 10px 0;
 }
-
-.configs {
-    padding: 0;
-    list-style: none;
-}
-
-.config:not(:last-of-type) {
-    border-bottom: 1px solid #ddd;
-}
-
-.config a {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    height: 100%;
-    color: inherit;
-    text-decoration: none;
-}
-
-.config .badges {
-    position: absolute;
-    right: 10px;
-}
-
-.config .badge:last-of-type {
-    margin-right: 0;
-}
-
-.config a:hover {
-    background-color: #F5F5F5;
-}
