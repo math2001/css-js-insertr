@@ -8,3 +8,8 @@
     --blue: #6990f7;
     --blue-light: #81A2F9;
 }
+
+body {
+    font-family: Roboto;
+    color: #333;
+}

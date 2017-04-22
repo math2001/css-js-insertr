@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="common/inputs.css">
     <link rel="stylesheet" type="text/css" href="common/buttons.css">
     <link rel="stylesheet" type="text/css" href="common/checkboxes.css">
+    <link rel="stylesheet" type="text/css" href="common/tabs.css">
+    <link rel="stylesheet" type="text/css" href="options.css">
     <title>CSS JS Insertr Options</title>
 </head>
 <body>
@@ -15,51 +17,57 @@
     <div class="container">
 
         <ul class="tabs">
-            <li data-tab="configs">Configs</li>
-            <li data-tab="global-settings">Global settings</li>
-            <li data-tab="editor-settings">Editor settings</li>
-            <li data-tab="about">About</li>
+            <li class="tab active" data-tab="configs">Configs</li>
+            <li class="tab" data-tab="global-settings">Global settings</li>
+            <li class="tab" data-tab="editor-settings">Editor settings</li>
+            <li class="tab" data-tab="about">About</li>
+            <div class="underline"></div>
         </ul>
 
-        <div id="tab-configs">
-            <button class="primary">Add</button>
-            <ul id="configs">
-                <li>Sample...</li>
-                <li>Sample...</li>
-                <li>Sample...</li>
-            </ul>
-        </div>
-        <div id="tab-global-settings">
-            <div class="row">
-                <input type="checkbox" id="sync">
-                <label for="sync" class="checkbox tick"></label>
-                <label for="sync">Use sync storage</label>
+        <div class="tabs-content">
+            <div id="tab-configs" class="tab-content active">
+                <button class="primary">Add</button>
+                <ul id="configs">
+                    <li>Sample...</li>
+                    <li>Sample...</li>
+                    <li>Sample...</li>
+                </ul>
             </div>
-            <div class="row">
-                <input type="checkbox" id="counter">
-                <label for="counter" class="checkbox tick"></label>
-                <label for="counter">Display counter</label>
-            </div>
-        </div>
-        <div id="tab-editor-settings">
-            <div class="row">
-                <label for="font-size">Font size</label>
-                <div class="input-text number">
-                    <input type="number" id="font-size">
+            <div id="tab-global-settings" class="tab-content">
+                <div class="row">
+                    <input type="checkbox" id="sync">
+                    <label for="sync" class="checkbox tick"></label>
+                    <label for="sync">Use sync storage</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="counter">
+                    <label for="counter" class="checkbox tick"></label>
+                    <label for="counter">Display counter</label>
                 </div>
             </div>
-            <div class="row">
-                <label for="tab-size">Tab size</label>
-                <div class="input-text number">
-                    <input type="number" id="tab-size">
+            <div id="tab-editor-settings" class="tab-content">
+                <div class="row">
+                    <label for="font-size">Font size</label>
+                    <div class="input-text number">
+                        <input type="number" id="font-size">
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="tab-size">Tab size</label>
+                    <div class="input-text number">
+                        <input type="number" id="tab-size">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="tab-about">
-            <p>Too lazy to do it right now...</p>
+            <div id="tab-about" class="tab-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, culpa accusantium placeat! Accusantium magnam inventore officia in numquam explicabo, necessitatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem nobis sed ut nihil est natus fugit non quisquam accusantium ea amet excepturi, magnam voluptatem, obcaecati repudiandae aspernatur iste quas. Expedita repellat excepturi commodi dolorum, laborum, ratione, a suscipit cum reprehenderit fugit iusto, est quae at magni. Odio magni, totam minima.</p>
+            </div>
         </div>
 
     </div>
+
+    <script type="text/javascript" src="tabs.js"></script>
 
 </body>
 </html>
