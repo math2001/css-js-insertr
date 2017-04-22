@@ -14,6 +14,14 @@ class App {
     static cacheDOM() {
         this.configs = document.querySelector('#configs')
         this.add = document.querySelector('#add')
+        this.saveSettingBtns = Array.from(document.querySelectorAll('.save-setting-button'))
+
+        this.settings = {
+            sync: document.querySelector('#sync'),
+            counter: document.querySelector('#counter'),
+            fontSize: document.querySelector('#font-size'),
+            tabSize: document.querySelector('#tab-size')
+        }
     }
 
     static bindDOM() {
@@ -22,6 +30,28 @@ class App {
                 url: chrome.runtime.getURL('edit.html')
             })
         })
+        this.saveSettingBtns.some((btn) => {
+            btn.addEventListener('click', e => {
+                e.target.disabled = true
+                ConfigManager.setSettings(this.getSettings()).catch(error => {
+                    alert(`Error: ${error}`)
+                }).then(_ => {
+                    // e.target.disabled = false
+                })
+            })
+        })
+    }
+
+    static getSettings() {
+        const settings = {}
+        for (let settingName in this.settings) {
+            if (this.settings[settingName].type === 'checkbox') {
+                settings[settingName] = this.settings[settingName].checked
+            } else {
+                settings[settingName] = this.settings[settingName].checked
+            }
+        }
+        return settings
     }
 
     static loadConfigs() {
