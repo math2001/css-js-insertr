@@ -27,3 +27,9 @@ button.primary {
 button.primary:hover {
     background-color: var(--blue-light);
 }
+
+button.big {
+    font-size: 110%;
+    padding: 10px 8px;
+    min-width: 100px;
+}

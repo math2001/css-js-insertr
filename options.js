@@ -47,8 +47,8 @@ class App {
             li.classList.add('config')
             a = document.createElement('a')
             a.href = chrome.runtime.getURL(`/edit.html?load=true&pattern=${pattern}`)
+            a.target = '_blank'
             a.textContent = pattern
-            li.appendChild(a)
             badges = document.createElement('span')
             badges.classList.add('badges')
             if (configs[pattern].css !== '') {
@@ -57,7 +57,8 @@ class App {
             if (configs[pattern].js !== '') {
                 badges.appendChild(Badge('JavaScript'))
             }
-            li.appendChild(badges)
+            a.appendChild(badges)
+            li.appendChild(a)
             this.configs.appendChild(li)
         }
     }

@@ -14,3 +14,7 @@ body {
     font-size: 100%;
     color: #333;
 }
+
+.text-center {
+    text-align: center;
+}

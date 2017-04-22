@@ -37,7 +37,7 @@ ul li:not(:last-of-type) a {
 }
 
 ul a:hover {
-    background-color: #eee;
+    background-color: #F5F5F5;
 }
 
 ul a::after {
@@ -57,7 +57,6 @@ ul a:hover::after {
 }
 
 .about {
-        color: #888;
+    color: #888;
     margin: 7px 0;
-}
 }

@@ -1,0 +1,9 @@
+.badge {
+    color: #ccc;
+    border: 1px solid currentColor;
+    margin: 5px;
+    padding: 2px;
+    border-radius: 2px;
+    font-family: var(--mono-fonts);
+    font-size: 80%;
+}
