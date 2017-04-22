@@ -6,15 +6,28 @@ class Editors {
 
     static init(css, js) {
 
-        this.theme = 'ace/theme/monokai'
+        this.theme = 'tomorrow'
+        this.useVim = true
+
+        ace.require("ace/ext/emmet")
 
         this.cssEditor = ace.edit(css)
-        this.cssEditor.setTheme(this.theme);
+        this.applyConfig(this.cssEditor)
         this.cssEditor.getSession().setMode('ace/mode/css')
+        this.cssEditor.setOption("enableEmmet", true)
 
         this.jsEditor = ace.edit(js)
-        this.jsEditor.setTheme(this.theme)
-        this.cssEditor.getSession().setMode('ace/mode/javascript')
+        this.applyConfig(this.jsEditor)
+        this.jsEditor.getSession().setMode('ace/mode/javascript')
+    }
+
+    static applyConfig(editor) {
+        if (this.useVim === true) {
+            editor.setKeyboardHandler('ace/keyboard/vim')
+        }
+        if (this.theme !== undefined) {
+            editor.setTheme(`ace/theme/${this.theme}`)
+        }
     }
 
 }
@@ -25,6 +38,7 @@ class App {
         this.cacheDOM()
 
         Editors.init(this.css, this.js)
+        return
 
         chrome.tabs.query({active: true, currentWindow: true}, tabs => {
             this.tabId = tabs[0].id

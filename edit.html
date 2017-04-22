@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="edit.css">
     <title>Edit</title>
     <style type="text/css">
         body:not(.loading) .loader {
@@ -9,22 +10,27 @@
         }
     </style>
 </head>
-<body class="loading">
+<body>
     <div class="loader">
         Loading...
     </div>
-    <input type="text" id="pattern" placeholder="Pattern">
+    <header>
+        <input type="text" id="pattern" placeholder="Pattern">
+        <button id="save">Save</button>
+        <button id="delete">Delete</button>
+    </header>
 
+    <div class="editors">
+        <div id="css">div {
+    m5
+}</div>
 
-    <div id="css">body { font-family: Inconsolata; }</div>
-
-
-    <div id="js">console.log('this is a test')</div>
-
-    <button id="save">Save</button>
-    <button id="delete">Delete</button>
+        <div id="js">console.log('this is a test')</div>
+    </div>
 
     <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="emmet.js"></script>
+    <script type="text/javascript" src="emmet-ext.js"></script>
     <script type="text/javascript" src="edit.js"></script>
 </body>
 </html>

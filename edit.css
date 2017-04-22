@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.loader {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inconsolata;
+    font-size: 150%;
+    color: white;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+body:not(.loading) .loader {
+    display: none;
+}
+
+header {
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+    display: flex;
+    padding: 10px;
+}
+
+header > input {
+    flex: 1;
+    margin: 5px;
+}
+
+.editors {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+}
+
+.editors > div {
+    flex: 1;
+}
