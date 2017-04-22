@@ -47,6 +47,15 @@ class App {
                 })
             })
         })
+
+        Object.values(this.settings).some((domSetting) => {
+            domSetting.addEventListener('change', _ => {
+                this.saveSettingBtns.some((btn) => {
+                    btn.classList.add('primary')
+                })
+            })
+        })
+
     }
 
     static getSettingsFromDom() {
