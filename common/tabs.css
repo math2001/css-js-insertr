@@ -1,17 +1,22 @@
+.container {
+    --tabs-offset-left: 20px;
+}
 
 .tabs {
     padding: 0;
     list-style: none;
     position: relative;
-    padding-bottom: 6px;
     border-bottom: 1px solid #ddd;
+    padding-left: var(--tabs-offset-left);
+    margin: 0;
 }
 
 .tab {
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 10px;
     cursor: pointer;
     color: #999;
+    padding: 15px 0;
 }
 
 .tab.active {
@@ -25,7 +30,7 @@
     position: absolute;
     bottom: 0px;
     transition: all .2s;
-    left: 0;
+    left: var(--tabs-offset-left);
 }
 
 .tabs-content {
@@ -40,6 +45,7 @@
     transform: translateX(-5px);
     opacity: 0;
     transition: all .5s;
+    padding: 20px;
 }
 
 .tab-content.active {
