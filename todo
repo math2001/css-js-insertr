@@ -1,12 +1,12 @@
  ☐ library
  ☐ choose which config is sync
  ☐ better glob (not with regex)
- ☐ tab → use hash in url
  ☐ snippets
  ☐ [editor] 'save' button: add dirty state
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ tab → use hash in url @done Sun 23 Apr 2017 at 08:08
  ✔ display badge css/js/sync @done Sat 22 Apr 2017 at 19:35
  ✔ fix style in options.html forms @done Sat 22 Apr 2017 at 19:35
  ✔ enable/disable emmet @done Sat 22 Apr 2017 at 19:35
