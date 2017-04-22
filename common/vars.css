@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
 :root {
     --mono-fonts: Inconsolata, monaco, consolas, monospace;
+    --blue: #6990f7;
+    --blue-light: #81A2F9;
 }

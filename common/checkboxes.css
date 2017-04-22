@@ -1,0 +1,61 @@
+input[type=checkbox] {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.checkbox.tick {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 3px;
+    vertical-align: middle;
+    position: relative;
+    border: 2px solid #888;
+    transition: all .3s;
+}
+
+.checkbox.tick::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-family: Inconsolata, Monaco, consolas, monospace;
+    font-size: 70%;
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%) scale(.8);
+    opacity: 0;
+    color: #555;
+    transition: all .3s;
+}
+
+.checkbox.tick:hover::before {
+    transform: translate(-50%, -120%) scale(1);
+    opacity: 1;
+}
+
+.checkbox.tick::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 5px;
+    height: 2px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+input[type=checkbox]:checked + .checkbox.tick::after {
+    opacity: 1;
+}
+
+input[type=checkbox]:checked + .checkbox.tick {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="common/vars.css">
+    <link rel="stylesheet" type="text/css" href="common/inputs.css">
+    <link rel="stylesheet" type="text/css" href="common/buttons.css">
+    <link rel="stylesheet" type="text/css" href="common/checkboxes.css">
+    <title>CSS JS Insertr Options</title>
+</head>
+<body>
+
+    <h1>CSS JS Insertr</h1>
+
+    <div class="container">
+
+        <ul class="tabs">
+            <li data-tab="configs">Configs</li>
+            <li data-tab="global-settings">Global settings</li>
+            <li data-tab="editor-settings">Editor settings</li>
+            <li data-tab="about">About</li>
+        </ul>
+
+        <div id="tab-configs">
+            <button class="primary">Add</button>
+            <ul id="configs">
+                <li>Sample...</li>
+                <li>Sample...</li>
+                <li>Sample...</li>
+            </ul>
+        </div>
+        <div id="tab-global-settings">
+            <div class="row">
+                <input type="checkbox" id="sync">
+                <label for="sync" class="checkbox tick"></label>
+                <label for="sync">Use sync storage</label>
+            </div>
+            <div class="row">
+                <input type="checkbox" id="counter">
+                <label for="counter" class="checkbox tick"></label>
+                <label for="counter">Display counter</label>
+            </div>
+        </div>
+        <div id="tab-editor-settings">
+            <div class="row">
+                <label for="font-size">Font size</label>
+                <div class="input-text number">
+                    <input type="number" id="font-size">
+                </div>
+            </div>
+            <div class="row">
+                <label for="tab-size">Tab size</label>
+                <div class="input-text number">
+                    <input type="number" id="tab-size">
+                </div>
+            </div>
+        </div>
+        <div id="tab-about">
+            <p>Too lazy to do it right now...</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

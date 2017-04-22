@@ -20,10 +20,10 @@ button:hover {
 }
 
 button.primary {
-    background-color: #6990f7;
+    background-color: var(--blue);
     color: white;
 }
 
 button.primary:hover {
-    background-color: #81A2F9;
+    background-color: var(--blue-light);
 }
