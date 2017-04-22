@@ -21,7 +21,6 @@ class App {
         this.saveSettingBtns = Array.from(document.querySelectorAll('.save-setting-button'))
 
         this.settings = {
-            sync: document.querySelector('#sync'),
             counter: document.querySelector('#counter'),
             fontSize: document.querySelector('#font-size'),
             tabSize: document.querySelector('#tab-size')
@@ -74,7 +73,6 @@ class App {
                 domSetting.value = settings[settingName]
             }
         }
-        this.settings.sync.checked = settings.sync
     }
 
     static loadConfigs() {

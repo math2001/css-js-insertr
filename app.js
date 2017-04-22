@@ -5,12 +5,11 @@ class ConfigManager {
     // get and set the scripts and styles
 
     static init() {
-        this.storage = chrome.storage.local
+        this.storage = chrome.storage.sync
         this.keyOfPatternList = '.___patterns___.'
         this.keyOfSettings = '.___settings___.'
 
         this.defaultSettings = {
-            sync: true,
             counter: true,
             fontSize: 16,
             tabSize: 4
