@@ -1,8 +1,12 @@
  ☐ library
  ☐ choose which config is sync
- ☐ display badge css/js/sync
  ☐ better glob (not with regex)
  ☐ tab → use hash in url
- ☐ enable/disable emmet
  ☐ snippets
- ☐ fix style in options.html forms
+ ☐ [editor] 'save' button: add dirty state
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ display badge css/js/sync @done Sat 22 Apr 2017 at 19:35
+ ✔ fix style in options.html forms @done Sat 22 Apr 2017 at 19:35
+ ✔ enable/disable emmet @done Sat 22 Apr 2017 at 19:35
