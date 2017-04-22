@@ -62,9 +62,13 @@ class App {
     static init() {
         this.cacheDOM()
 
-        Editors.init(this.css, this.js)
-
         const searchParams = new URLSearchParams(location.search)
+
+        this.patternString = searchParams.get('pattern') || ''
+        this.pattern.value = this.patternString
+        this.previousPattern = this.patternString
+
+        Editors.init(this.css, this.js)
 
         let loadConfig
         if (searchParams.get('load') === 'true') {
@@ -73,8 +77,6 @@ class App {
             loadConfig = 1
         }
 
-        this.patternString = searchParams.get('pattern') || ''
-        this.pattern.value = this.patternString
 
         Promise.all([getCurrentTab().then(tab => {
             this.tabId = tab.id
@@ -147,6 +149,9 @@ class App {
     }
 
     static fillConfig(config) {
+        if (typeof config === 'string') {
+            return this.showError(config)
+        }
         Editors.css(config.css)
         Editors.js(config.js)
         this.previousPattern = this.pattern.value

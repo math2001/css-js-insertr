@@ -86,6 +86,9 @@ class ConfigManager {
     }
 
     static removeFromStorage(keys) {
+        if (keys === undefined) {
+            throw new Error('Key are null → should be string or array of string')
+        }
         return new Promise((resolve, reject) => {
             this.storage.remove(keys, function () {
                 resolve()
@@ -133,16 +136,25 @@ chrome.runtime.onMessage.addListener((e, _, reply) => {
     }
 
     else if (e.type == 'get-config') {
+        console.info(`Get the config for '${e.pattern}'`)
+        if (e.pattern === undefined) {
+            reply("Internal error: pattern is undefined on 'get-config'")
+            return
+        }
         ConfigManager.getFromStorage(e.pattern).then(config => {
             reply(config[e.pattern])
-        }).catch(error => reply(error))
+        }).catch(error => {
+            reply(error)
+        })
         return true
     }
 
     else if (e.type == 'delete-config') {
         ConfigManager.remove(e.pattern).then(_ => {
             reply('ok')
-        }).catch(error => reply(error))
+        }).catch(error => {
+            reply(error)
+        })
         return true
     }
 })
