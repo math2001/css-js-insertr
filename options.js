@@ -4,6 +4,7 @@ class App {
 
     static init() {
         this.cacheDOM()
+        this.bindDOM()
 
         this.loadConfigs()
         .then(configs => this.render(configs))
@@ -12,6 +13,15 @@ class App {
 
     static cacheDOM() {
         this.configs = document.querySelector('#configs')
+        this.add = document.querySelector('#add')
+    }
+
+    static bindDOM() {
+        this.add.addEventListener('click', _ => {
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('edit.html')
+            })
+        })
     }
 
     static loadConfigs() {
