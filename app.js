@@ -140,7 +140,6 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
     }
 
     else if (e.type == 'get-config') {
-        console.info(`Get the config for '${e.pattern}'`)
         if (e.pattern === undefined) {
             reply("Internal error: pattern is undefined on 'get-config'")
             return
@@ -160,5 +159,15 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
             reply(error)
         })
         return true
+    }
+
+    else if (e.type == 'get-all-configs') {
+
+        ConfigManager.getFromStorage(null).then(configs => {
+            delete configs[ConfigManager.keyOfPatternList]
+            reply(configs)
+        })
+        return true
+
     }
 })

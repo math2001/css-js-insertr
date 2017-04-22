@@ -3,13 +3,10 @@
     "name": "CSS JS Insertr",
     "version": "0.1.0",
     "description": "Allows you to add custom JavaScript/CSS to any website.",
-    "permissions": [
-        "storage"
-    ],
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "permissions": ["activeTab", "storage"],
+    "permissions": ["tabs", "storage"],
     "background": {
         "scripts": ["app.js"]
     },
@@ -19,5 +16,6 @@
             "js": ["insert.js"]
         }
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "options_page": "options.html"
 }

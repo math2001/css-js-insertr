@@ -18,6 +18,7 @@ class Tabs {
 
         this.currentTab = this.container.querySelector('.tab.active')
         this.currentTabContent = this.container.querySelector('.tab-content.active')
+        this.moveUnderlineTo(this.currentTab)
     }
 
     moveUnderlineTo(element) {
