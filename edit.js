@@ -30,6 +30,21 @@ class Editors {
         }
     }
 
+    static css(value) {
+        if (value === undefined) {
+            return this.cssEditor.getValue()
+        }
+        this.cssEditor.setValue(value)
+        this.cssEditor.selection.clearSelection()
+    }
+    static js(value) {
+        if (value === undefined) {
+            return this.jsEditor.getValue()
+        }
+        this.jsEditor.setValue(value)
+        this.jsEditor.selection.clearSelection()
+    }
+
 }
 
 class App {
@@ -38,7 +53,6 @@ class App {
         this.cacheDOM()
 
         Editors.init(this.css, this.js)
-        return
 
         chrome.tabs.query({active: true, currentWindow: true}, tabs => {
             this.tabId = tabs[0].id
@@ -99,8 +113,8 @@ class App {
 
     static getConfig() {
         return {
-            css: this.css.value,
-            js: this.js.value,
+            css: Editors.css(),
+            js: Editors.js(),
         }
     }
 
@@ -120,8 +134,8 @@ class App {
     }
 
     static fillConfig(config) {
-        this.css.value = config.css
-        this.js.value = config.js
+        Editors.css(config.css)
+        Editors.js(config.js)
         this.previousPattern = this.pattern.value
     }
 
