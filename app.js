@@ -7,7 +7,35 @@ class ConfigManager {
     static init() {
         this.storage = chrome.storage.local
         this.keyOfPatternList = '.___patterns___.'
+        this.keyOfSettings = '.___settings___.'
     }
+
+    static getSettings() {
+        return new Promise((resolve, reject) => {
+            this.storage.get(this.keyOfSettings, function (object) {
+                if (chrome.runtime.lastError !== undefined) {
+                    reject(chrome.runtime.lastError)
+                } else {
+                    resolve(object[this.keyOfSettings])
+                }
+            })
+        })
+    }
+
+    static setSettings(settings) {
+        return new Promise((resolve, reject) => {
+            const obj = {}
+            obj[this.keyOfSettings] = settings
+            this.storage.set(obj, function () {
+                if (chrome.runtime.lastError !== undefined) {
+                    reject(chrome.runtime.lastError)
+                } else {
+                    resolve()
+                }
+            })
+        })
+    }
+
 
     static matches(pattern, url) {
         return new RegExp(pattern).test(url)
