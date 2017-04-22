@@ -9,6 +9,10 @@ class App {
         this.loadConfigs()
         .then(configs => this.render(configs))
         .catch(error => alert(`Error: ${error}`))
+
+        ConfigManager.getSettings()
+        .then(settings => this.fillSettings(settings))
+        .catch(error => alert(`Error: ${error}`))
     }
 
     static cacheDOM() {
@@ -35,7 +39,7 @@ class App {
                 this.saveSettingBtns.some((btn) => {
                     btn.disabled = true
                 })
-                ConfigManager.setSettings(this.getSettings()).catch(error => {
+                ConfigManager.setSettings(this.getSettingsFromDom()).catch(error => {
                     alert(`Error: ${error}`)
                 }).then(_ => {
                     this.saveSettingBtns.some((btn) => {
@@ -46,16 +50,31 @@ class App {
         })
     }
 
-    static getSettings() {
+    static getSettingsFromDom() {
         const settings = {}
         for (let settingName in this.settings) {
             if (this.settings[settingName].type === 'checkbox') {
                 settings[settingName] = this.settings[settingName].checked
-            } else {
-                settings[settingName] = this.settings[settingName].checked
+            } else if (this.settings[settingName].type === 'number') {
+                settings[settingName] = parseInt(this.settings[settingName].value)
+            } else if (this.settings[settingName].type === 'text') {
+                settings[settingName] = this.settings[settingName].value
             }
         }
         return settings
+    }
+
+    static fillSettings(settings) {
+        let domSetting;
+        for (let settingName in this.settings) {
+            domSetting = this.settings[settingName]
+            if (domSetting.type == 'checkbox') {
+                domSetting.checked = settings[settingName]
+            } else {
+                domSetting.value = settings[settingName]
+            }
+        }
+        this.settings.sync.checked = settings.sync
     }
 
     static loadConfigs() {

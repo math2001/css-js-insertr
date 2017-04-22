@@ -8,6 +8,13 @@ class ConfigManager {
         this.storage = chrome.storage.local
         this.keyOfPatternList = '.___patterns___.'
         this.keyOfSettings = '.___settings___.'
+
+        this.defaultSettings = {
+            sync: true,
+            counter: true,
+            fontSize: 16,
+            tabSize: 4
+        }
     }
 
     static getSettings() {
@@ -16,7 +23,7 @@ class ConfigManager {
                 if (chrome.runtime.lastError !== undefined) {
                     reject(chrome.runtime.lastError)
                 } else {
-                    resolve(object[this.keyOfSettings])
+                    resolve(Object.assign(this.defaultSettings, object[this.keyOfSettings]))
                 }
             })
         })
