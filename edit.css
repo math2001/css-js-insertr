@@ -3,6 +3,10 @@
     outline: none;
 }
 
+:root {
+    --mono-fonts: Inconsolata, monaco, consolas, monospace;
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -42,7 +46,7 @@ header {
     padding: 10px;
 }
 
-header > input {
+header > .input-text {
     flex: 1;
     margin: 5px;
 }
@@ -55,4 +59,9 @@ header > input {
 
 .editors > div {
     flex: 1;
+}
+
+.input-text input {
+    font-family: var(--mono-fonts);
+    /* font-size: 150%; */
 }

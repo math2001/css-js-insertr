@@ -1,0 +1,52 @@
+.input-text {
+    position: relative;
+    display: inline-block;
+    margin: 5px 10px;
+    --redish: #FD5C4C;
+}
+
+.input-text input {
+    border: none;
+    border-bottom: 2px #ccc solid;
+    width: 100%;
+    background-color: transparent;
+    font-size: 100%;
+    font-family: inherit;
+}
+
+.input-text .placeholder {
+    position: absolute;
+    color: #333;
+    left: 0;
+    top: 0.1rem;
+    color: #777;
+    font-size: 90%;
+    z-index: -5;
+    transition: all .3s;
+}
+
+.input-text.big .placeholder {
+    font-size: 150%;
+    top: -.3em;
+}
+
+.input-text input.error {
+    border-color: var(--redish);
+    color: var(--redish);
+}
+
+.input-text input:disabled[value] + .placeholder,
+.input-text input:valid + .placeholder {
+    font-size: 60%;
+    top: -12px;
+}
+
+.input-text.big input:disabled[value] + .placeholder,
+.input-text.big input:valid + .placeholder {
+    font-size: 100%;
+    top: -15px;
+}
+
+.input-text.big input {
+    font-size: 150%;
+}
