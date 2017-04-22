@@ -128,7 +128,7 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
 
     else if (e.type === 'update-config') {
         ConfigManager.setFor(e.pattern, e.config).then(_ => {
-            if (e.pattern !== e.previousPattern) {
+            if (e.pattern !== e.previousPattern && e.previousPattern !== undefined) {
                 ConfigManager.remove(e.previousPattern).then(_ => {
                     reply('ok')
                 })

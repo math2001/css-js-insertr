@@ -66,13 +66,13 @@ class App {
 
         this.patternString = searchParams.get('pattern') || ''
         this.pattern.value = this.patternString
-        this.previousPattern = this.patternString
 
         Editors.init(this.css, this.js)
 
         let loadConfig
         if (searchParams.get('load') === 'true') {
             loadConfig = this.loadConfig().then(this.fillConfig.bind(this))
+            this.previousPattern = this.patternString
         } else {
             loadConfig = 1
         }
