@@ -193,6 +193,7 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
 
         ConfigManager.getFromStorage(null).then(configs => {
             delete configs[ConfigManager.keyOfPatternList]
+            delete configs[ConfigManager.keyOfSettings]
             reply(configs)
         })
         return true
