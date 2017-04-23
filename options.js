@@ -24,7 +24,11 @@ class App {
             theme: document.querySelector('#theme'),
             counter: document.querySelector('#counter'),
             counterZero: document.querySelector('#counter-zero'),
+
+            font: document.querySelector('#font'),
             fontSize: document.querySelector('#font-size'),
+            loadFromGoogleFont: document.querySelector('#load-from-google-font'),
+            
             tabSize: document.querySelector('#tab-size'),
             vimMode: document.querySelector('#vim-mode'),
             emmet: document.querySelector('#emmet'),

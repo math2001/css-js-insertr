@@ -13,6 +13,8 @@ class ConfigManager {
             counter: true,
             counterZero: false,
             fontSize: 16,
+            font: 'Roboto Mono',
+            loadFromGoogleFont: false,
             tabSize: 4,
             vimMode: false,
             emmet: true,

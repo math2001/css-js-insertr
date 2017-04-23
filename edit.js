@@ -1,5 +1,15 @@
 "use strict";
 
+function loadFromGoogleFont(fontName) {
+
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.type = 'text/css'
+    link.href = 'https://fonts.googleapis.com/css?family=' + fontName.replace(/ /g, '+')
+    document.head.appendChild(link)
+
+}
+
 class Editors {
 
     // manages the css and js editors
@@ -49,6 +59,11 @@ class Editors {
 
         editor.setHighlightActiveLine(this.settings.highlightLine)
         editor.container.style.fontSize = this.settings.fontSize + 'px'
+        editor.container.style.fontFamily = this.settings.font
+
+        if (this.settings.loadFromGoogleFont === true) {
+            loadFromGoogleFont(this.settings.font)
+        }
     }
 
     static css(value) {
