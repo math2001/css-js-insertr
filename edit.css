@@ -39,10 +39,11 @@ body:not(.loading) .loader {
 
 header {
     width: 100%;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #ddd;
     display: flex;
     padding: 10px;
     align-items: flex-end;
+    padding-bottom: 15px;
 }
 
 header > .input-text {
@@ -62,5 +63,4 @@ header > .input-text {
 
 .input-text input {
     font-family: var(--mono-fonts);
-    /* font-size: 150%; */
 }
