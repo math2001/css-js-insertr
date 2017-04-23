@@ -1,11 +1,13 @@
  ☐ library
  ☐ choose which config is sync
- ☐ theme in editor
  ☐ resize editors / change view
  ☐ info about pattern "engine"
  ☐ live preview of editor
+ ☐ enable/disable config
+ ☐ readme!!!
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ theme in editor @done Sun 23 Apr 2017 at 17:35
  ✔ [editor] 'save' button: add dirty state @done Sun 23 Apr 2017 at 15:28
  ✔ snippets @done Sun 23 Apr 2017 at 15:14
  ✔ better glob (not with regex) @done Sun 23 Apr 2017 at 14:06

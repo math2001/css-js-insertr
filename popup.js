@@ -19,12 +19,18 @@ class App {
     static cacheDOM() {
         this.configs = document.querySelector('#configs')
         this.addConfig = document.querySelector('#add-config')
+        this.options = document.querySelector('#options')
     }
 
     static bindDOM() {
         this.addConfig.addEventListener('click', _ => {
             chrome.tabs.create({
                 url: chrome.runtime.getURL(`edit.html?pattern=${this.hostname}`)
+            })
+        })
+        this.options.addEventListener('click', _ => {
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('options.html')
             })
         })
     }
