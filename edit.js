@@ -123,7 +123,10 @@ class App {
         Promise.all([getCurrentTab().then(tab => {
             this.tabId = tab.id
             this.bindDOM()
-        }), loadConfig]).then(this.enable.bind(this))
+        }), loadConfig]).then(_ => {
+            this.save.classList.remove('primary')
+            this.enable()
+        })
 
 
     }
