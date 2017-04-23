@@ -11,6 +11,7 @@ class ConfigManager {
 
         this.defaultSettings = {
             counter: true,
+            counterZero: false,
             fontSize: 16,
             tabSize: 4,
             vimMode: false,
@@ -164,8 +165,12 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
                 if (settings.counter !== true) {
                     return
                 }
+                const count = Object.keys(configs).length
+                if (count === 0 && settings.counterZero === false) {
+                    return
+                }
                 chrome.browserAction.setBadgeText({
-                    text: Object.keys(configs).length + '',
+                    text: count + '',
                     tabId: sender.tab.id
                 })
             })

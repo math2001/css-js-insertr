@@ -22,6 +22,7 @@ class App {
 
         this.settings = {
             counter: document.querySelector('#counter'),
+            counterZero: document.querySelector('#counter-zero'),
             fontSize: document.querySelector('#font-size'),
             tabSize: document.querySelector('#tab-size'),
             vimMode: document.querySelector('#vim-mode'),
