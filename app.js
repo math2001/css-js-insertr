@@ -47,8 +47,12 @@ class ConfigManager {
     }
 
 
-    static matches(pattern, url) {
-        return new RegExp(pattern).test(url)
+    static matches(fullPattern, url) {
+        return fullPattern.split(/, +/).some(pattern => {
+            return new RegExp(pattern
+                              .replace(/[-\/\\^$+?.()\[\]{}|]/g, '\\$&')
+                              .replace(/\*/g, '.+')).test(url)
+        })
     }
 
     static getFromStorage(keys) {
@@ -215,3 +219,48 @@ chrome.runtime.onMessage.addListener((e, sender, reply) => {
 
     }
 })
+
+
+function testMatch() {
+
+    const shouldMatch = [
+        ['*', 'https://google.com'],
+        ['google.*', null],
+        ['*.fr, *.com', null],
+        ['html5rocks.com', 'html5rocks.com']
+    ]
+
+    const shouldNotMatch = [
+        ['goo*gle', 'https://google.com'],
+        ['google.c.', null]
+    ]
+
+    let prevUrl
+
+    function test(pattern, url, expectedResult) {
+        if (url === null) {
+            url = prevUrl
+        } else {
+            prevUrl = url
+        }
+        const actualResult = ConfigManager.matches(pattern, url)
+        if (actualResult !== expectedResult) {
+            console.error(`[test::matches] ['${pattern}', '${url}'] didn't get the expected '${expectedResult}', but '${actualResult}'`)
+        }
+    }
+
+    console.info('If no error is printed out, it means that every test passed. 😉')
+
+    shouldMatch.forEach(args => {
+        test(args[0], args[1], true)
+    })
+
+    shouldNotMatch.forEach(args => {
+        test(args[0], args[1], false)
+    })
+
+    ConfigManager.matches('*', 'https://google.com')
+
+}
+
+testMatch()
