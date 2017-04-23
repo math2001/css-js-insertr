@@ -39,9 +39,7 @@ class Editors {
         if (this.settings.vimMode === true) {
             editor.setKeyboardHandler('ace/keyboard/vim')
         }
-        if (this.settings.theme !== undefined) {
-            editor.setTheme(`ace/theme/${this.theme}`)
-        }
+        editor.setTheme(`ace/theme/${this.settings.theme}`)
         editor.getSession().setUseSoftTabs(this.settings.softTabs)
         editor.setOptions({
             enableBasicAutocompletion: true,

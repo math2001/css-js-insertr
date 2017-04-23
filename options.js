@@ -21,6 +21,7 @@ class App {
         this.saveSettingBtns = Array.from(document.querySelectorAll('.save-setting-button'))
 
         this.settings = {
+            theme: document.querySelector('#theme'),
             counter: document.querySelector('#counter'),
             counterZero: document.querySelector('#counter-zero'),
             fontSize: document.querySelector('#font-size'),
@@ -71,7 +72,7 @@ class App {
                 settings[settingName] = this.settings[settingName].checked
             } else if (this.settings[settingName].type === 'number') {
                 settings[settingName] = parseInt(this.settings[settingName].value)
-            } else if (this.settings[settingName].type === 'text') {
+            } else {
                 settings[settingName] = this.settings[settingName].value
             }
         }
