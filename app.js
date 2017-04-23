@@ -267,5 +267,3 @@ function testMatch() {
     ConfigManager.matches('*', 'https://google.com')
 
 }
-
-testMatch()
