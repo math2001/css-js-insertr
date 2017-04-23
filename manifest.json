@@ -10,6 +10,11 @@
     "background": {
         "scripts": ["app.js"]
     },
+    "icons": {
+       "128": "icon/icon_128.png",
+       "16": "icon/icon_16.png",
+       "48": "icon/icon_48.png"
+    },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],

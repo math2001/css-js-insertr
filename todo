@@ -4,6 +4,7 @@
  ☐ [editor] 'save' button: add dirty state
  ☐ theme in editor
  ☐ resize editors / change view
+ ☐ info about pattern "engine"
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ better glob (not with regex) @done Sun 23 Apr 2017 at 14:06

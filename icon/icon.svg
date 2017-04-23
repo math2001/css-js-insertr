@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="500"
+   height="500"
+   viewBox="0 0 132.29166 132.29167"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="icon.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="C:\Users\Home\Documents\css-js-insertr\icons\icon_test.png"
+   inkscape:export-xdpi="24.58"
+   inkscape:export-ydpi="24.58">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70921986"
+     inkscape:cx="79.603"
+     inkscape:cy="107.0268"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Math2001 - https://github.com/math2001</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:language>French or English</dc:language>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-164.70832)">
+    <g
+       id="g4431"
+       transform="matrix(1.3521312,0,0,1.3521312,-23.292011,-81.290945)">
+      <rect
+         y="181.93446"
+         x="17.226147"
+         height="97.839371"
+         width="97.839371"
+         id="rect4424"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         rx="19.567875"
+         inkscape:export-xdpi="24.58"
+         inkscape:export-ydpi="24.58" />
+      <g
+         transform="matrix(0.82450015,0,0,0.82450015,13.93127,55.156992)"
+         id="g4422">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4409"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Consolas;-inkscape-font-specification:Consolas;text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:5.38202763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+           d="m 41.660477,227.25122 -3.055423,3.08345 -18.837098,-15.72561 18.837098,-15.72561 3.055423,3.11148 -15.277111,12.55807 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4411"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Consolas;-inkscape-font-specification:Consolas;text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#5c72ed;stroke-width:5.38202763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+           d="M 74.65343,190.27781 55.423893,235.91292 H 50.770681 L 70.000218,190.27781 Z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4413"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Consolas;-inkscape-font-specification:Consolas;text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:5.38202763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+           d="m 85.025047,201.99493 3.027391,-3.11148 18.837102,15.72561 -18.837102,15.72561 -3.027391,-3.08345 15.277113,-12.5861 z" />
+      </g>
+    </g>
+  </g>
+</svg>
