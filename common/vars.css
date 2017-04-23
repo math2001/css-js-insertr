@@ -18,3 +18,11 @@ body {
 .text-center {
     text-align: center;
 }
+
+code {
+    font-family: "Roboto Mono";
+    background-color: #e8e8e8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    vertical-align: middle;
+}

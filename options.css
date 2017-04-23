@@ -13,6 +13,9 @@ h1 {
 .row {
     margin: 10px 0;
 }
+.row > .row {
+    padding-left: 30px;
+}
 
 label:not(.checkbox) {
     display: inline-block;
