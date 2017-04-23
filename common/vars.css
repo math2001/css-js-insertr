@@ -26,3 +26,11 @@ code {
     border-radius: 3px;
     vertical-align: middle;
 }
+
+label {
+    cursor: pointer;
+}
+
+a {
+    color: var(--blue);
+}
