@@ -4,7 +4,7 @@ class Editors {
 
     // manages the css and js editors
 
-    static init(css, js) {
+    static init(css, js, onChange=_=>{}) {
 
         ConfigManager.getSettings()
         .then(settings => {
@@ -25,10 +25,12 @@ class Editors {
             if (settings.emmet === true) {
                 this.cssEditor.setOption("enableEmmet", true)
             }
+            this.cssEditor.getSession().on('change', onChange)
 
             this.jsEditor = ace.edit(js)
             this.applySettings(this.jsEditor)
             this.jsEditor.getSession().setMode('ace/mode/javascript')
+            this.jsEditor.getSession().on('change', onChange)
         })
 
     }
@@ -58,12 +60,17 @@ class Editors {
         this.cssEditor.setValue(value)
         this.cssEditor.selection.clearSelection()
     }
+
     static js(value) {
         if (value === undefined) {
             return this.jsEditor.getValue()
         }
         this.jsEditor.setValue(value)
         this.jsEditor.selection.clearSelection()
+    }
+
+    static onChange(func) {
+        this._onChange = func
     }
 
 }
@@ -88,7 +95,9 @@ class App {
         this.patternString = searchParams.get('pattern') || ''
         this.pattern.value = this.patternString
 
-        Editors.init(this.css, this.js)
+        Editors.init(this.css, this.js, _ => {
+            this.save.classList.add('primary')
+        })
 
         let loadConfig
         if (searchParams.get('load') === 'true') {
@@ -97,7 +106,6 @@ class App {
         } else {
             loadConfig = 1
         }
-
 
         Promise.all([getCurrentTab().then(tab => {
             this.tabId = tab.id
@@ -118,6 +126,7 @@ class App {
     static bindDOM() {
 
         this.save.addEventListener('click', _ => {
+            this.save.disabled = true
             chrome.runtime.sendMessage(null, {
                 type: 'update-config',
                 config: this.getConfig(),
@@ -126,6 +135,8 @@ class App {
             }, response => {
                 if (response === 'ok') {
                     this.previousPattern = this.pattern.value
+                    this.save.disabled = false
+                    this.save.classList.remove('primary')
                 } else {
                     this.showError(response)
                 }
